@@ -1,5 +1,5 @@
 const { play } = require("../include/play");
-const { YOUTUBE_API_KEY } = require("../config.json");
+const { YOUTUBE_API_KEY } = require("../config");
 const ytdl = require("ytdl-core");
 const YouTubeAPI = require("simple-youtube-api");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);

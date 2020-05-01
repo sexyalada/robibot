@@ -5,7 +5,7 @@ const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START"] });
 const { readdirSync } = require("fs");
 const { join } = require("path");
-const { TOKEN, PREFIX, MUSIC_CHANNEL_ID } = require("./config.json");
+const { TOKEN, PREFIX, MUSIC_CHANNEL_ID } = require("./config");
 const { MessageEmbed } = require('discord.js');
 
 client.login(TOKEN);

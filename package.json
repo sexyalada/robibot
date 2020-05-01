@@ -13,6 +13,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.2.1",
     "discord.js": "^12.0.1",
+    "dotenv": "^8.2.0",
     "simple-youtube-api": "^5.1.1",
     "ytdl-core": "^2.0.0",
     "ytdl-core-discord": "amishshah/ytdl-core-discord"

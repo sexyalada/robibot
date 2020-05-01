@@ -1,5 +1,5 @@
 const { play } = require("../include/play");
-const { YOUTUBE_API_KEY, MAX_PLAYLIST_SIZE } = require("../config.json");
+const { YOUTUBE_API_KEY, MAX_PLAYLIST_SIZE } = require("../config");
 const YouTubeAPI = require("simple-youtube-api");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 

@@ -21,16 +21,12 @@ After installation finishes you can use `node index.js` to start the bot.
 
 ## Configuration
 
-Copy or Rename `config.json.example` to `config.json` and fill out the values:
+Create a file named .env on 
 
-```json
-{
-	"TOKEN": "",
-	"YOUTUBE_API_KEY": "",
-	"MAX_PLAYLIST_SIZE": 10,
-	"PREFIX": "?",
-	"MUSIC_CHANNEL_ID": ""
-}
+```plain
+TOKEN=*********************************************************
+YOUTUBE_API_KEY=****************************************
+MUSIC_CHANNEL_ID=12345678900000000
 ```
 
 ## Using the bot via Glitch
@@ -41,7 +37,7 @@ Copy or Rename `config.json.example` to `config.json` and fill out the values:
 3. **Setting up Glitch**:
    * Register to Glitch with Github
    * Import my repository (`pepyta/robibot`)
-   * Setup your `config.json` file
+   * Setup your `.env` file as described above
 4. **Making the page stay awake**:
    * Click on show button > In a New Window > Copy the url
    * Go to [awake.glitch.me](http://awake.glitch.me/) and submit your url
@@ -81,4 +77,5 @@ Copy or Rename `config.json.example` to `config.json` and fill out the values:
 ## Credits
 
 [@iCrawl](https://github.com/iCrawl) For the queue system used in this application which was adapted from [@iCrawl/discord-music-bot](https://github.com/iCrawl/discord-music-bot)
+
 [@eritislami](https://github.com/eritislami) For the base project that is being used in this project [@eritislami/evobot](https://github.com/eritislami/evobot)
