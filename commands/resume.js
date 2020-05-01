@@ -1,17 +1,30 @@
 module.exports = {
-  name: "resume",
-  description: "Resume currently playing music",
-  execute(message) {
-    const serverQueue = message.client.queue.get(message.guild.id);
+	name: "resume",
+	description: "Resume currently playing music",
+	execute(message) {
+		const serverQueue = message.client.queue.get(message.guild.id);
 
-    if (!message.member.voice.channel)
-      return message.reply("You need to join a voice channel first!").catch(console.error);
+		if (!message.member.voice.channel)
+			return message.reply("You need to join a voice channel first!").catch(console.error);
 
-    if (serverQueue && !serverQueue.playing) {
-      serverQueue.playing = true;
-      serverQueue.connection.dispatcher.resume();
-      return serverQueue.textChannel.send(`${message.author} ▶ resumed the music!`).catch(console.error);
-    }
-    return message.reply("There is nothing playing.").catch(console.error);
-  }
+		if (serverQueue && !serverQueue.playing) {
+			serverQueue.playing = true;
+			serverQueue.connection.dispatcher.resume();
+			let resumeEmbed = new MessageEmbed()
+				.setTitle("Resume")
+				.setDescription(`The music has been resumed by ${message.author}`)
+				.setColor(`#388e3c`);
+
+			return serverQueue.textChannel.send(resumeEmbed)
+				.then((msg) => {
+					setTimeout(() => {
+						if (msg.deletable) {
+							msg.delete();
+						}
+					}, 10000);
+				})
+				.catch(console.error);;
+		}
+		return message.reply("There is nothing playing.").catch(console.error);
+	}
 };

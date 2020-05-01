@@ -3,6 +3,7 @@ const { YOUTUBE_API_KEY } = require("../config.json");
 const ytdl = require("ytdl-core");
 const YouTubeAPI = require("simple-youtube-api");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   name: "play",
@@ -46,6 +47,19 @@ module.exports = {
 
     if (urlValid) {
       try {
+        let searchEmbed = new MessageEmbed()
+            .setTitle("Searching")
+            .setDescription(`Searching for song with url **${url}**.`)
+            .setColor(`#FF0000`);
+
+        message.channel.send(searchEmbed).then((msg) => {
+          setTimeout(() => {
+            if(msg.deletable){
+              msg.delete();
+            }
+          }, 10000);
+        })
+
         songInfo = await ytdl.getInfo(url);
         song = {
           title: songInfo.title,
@@ -63,6 +77,18 @@ module.exports = {
       }
     } else {
       try {
+        let searchEmbed = new MessageEmbed()
+            .setTitle("Searching")
+            .setDescription(`Searching for song with name **${search}**.`)
+            .setColor(`#FF0000`);
+
+        message.channel.send(searchEmbed).then((msg) => {
+          setTimeout(() => {
+            if(msg.deletable){
+              msg.delete();
+            }
+          }, 10000);
+        })
         const results = await youtube.searchVideos(search, 1);
         songInfo = await ytdl.getInfo(results[0].url);
         song = {
@@ -77,9 +103,12 @@ module.exports = {
 
     if (serverQueue) {
       serverQueue.songs.push(song);
-      return serverQueue.textChannel
-        .send(`✅ **${song.title}** has been added to the queue by ${message.author}`)
-        .catch(console.error);
+      let addToQueueEmbed = new MessageEmbed()
+        .setTitle("Added to queue")
+        .setDescription(`You've successfully added **${song.title}** to the queue.`)
+        .setColor("#388e3c");
+
+      return serverQueue.textChannel.send(addToQueueEmbed).catch(console.error);
     } else {
       queueConstruct.songs.push(song);
     }

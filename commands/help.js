@@ -6,6 +6,10 @@ module.exports = {
   execute(message) {
     let commands = message.client.commands.array();
     
+    if(message.deletable){
+      message.delete();
+    }
+
     let helpEmbed = new MessageEmbed()
     .setTitle("Help")
     .setDescription("List of all commands")
@@ -20,6 +24,12 @@ module.exports = {
 
     helpEmbed.setTimestamp();
 
-    return message.channel.send(helpEmbed);
+    return message.channel.send(helpEmbed).then((msg) => {
+      setTimeout(() => {
+        if(msg.deletable){
+          msg.delete();
+        }
+      }, 60000);
+    });
   }
 };

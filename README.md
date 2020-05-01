@@ -1,7 +1,7 @@
-![logo](https://repository-images.githubusercontent.com/186841818/8aa95700-7730-11e9-84be-e80f28520325)
+![logo](https://repository-images.githubusercontent.com/260430808/da8b6300-8bb9-11ea-821a-cde5089d4c34)
 
-# EvoBot (Discord Music Bot)
-> EvoBot is a Discord Music Bot built with discord.js & uses Command Handler from [discordjs.guide](https://discordjs.guide)
+# RobiBot (Discord Music Bot)
+> Robibot is a Discord Music Bot built with discord.js & uses Command Handler from [discordjs.guide](https://discordjs.guide)
 
 ## Requirements
 
@@ -12,7 +12,7 @@
 ## Installation
 
 ```
-git clone https://github.com/eritislami/evobot.git
+git clone https://github.com/pepyta/robibot.git
 cd evobot
 npm install
 ```
@@ -28,22 +28,37 @@ Copy or Rename `config.json.example` to `config.json` and fill out the values:
 	"TOKEN": "",
 	"YOUTUBE_API_KEY": "",
 	"MAX_PLAYLIST_SIZE": 10,
-	"PREFIX": "/"
+	"PREFIX": "?",
+	"MUSIC_CHANNEL_ID": ""
 }
 ```
 
+## Using the bot via Glitch
+1. **Getting the bot's token**: [Discord developers page](https://discordapp.com/developers) > Create an application > Bot > Build a Bot > Token > Copy
+2. **Getting Youtube API token**:
+   * [Youtube Data API V3](https://console.cloud.google.com/apis/api/youtube.googleapis.com/overview) > Enable API
+   * [Google API Dashboard](console.cloud.google.com/apis/credentials) > Create credentials > API key > Copy
+3. **Setting up Glitch**:
+   * Register to Glitch with Github
+   * Import my repository (`pepyta/robibot`)
+   * Setup your `config.json` file
+4. **Making the page stay awake**:
+   * Click on show button > In a New Window > Copy the url
+   * Go to [awake.glitch.me](http://awake.glitch.me/) and submit your url
+5. **Invite your Discord bot!**
+
 ## Features & Commands
 
-> Note: The default prefix is '/'
+> Note: The default prefix is '!'
 
 * 🎶 Play music from YouTube via url
-  * `/play https://www.youtube.com/watch?v=GLvohMXgcBo`
+  * `!play https://www.youtube.com/watch?v=GLvohMXgcBo`
 * 🔎 Play music from YouTube via search query
-  * `/play under the bridge red hot chili peppers`
+  * `!play under the bridge red hot chili peppers`
 * 📃 Play youtube playlists via url
-  * `/playlist https://www.youtube.com/watch?v=YlUKcNNmywk&list=PL5RNCwK3GIO13SR_o57bGJCEmqFAwq82c`
+  * `!playlist https://www.youtube.com/watch?v=YlUKcNNmywk&list=PL5RNCwK3GIO13SR_o57bGJCEmqFAwq82c`
 * 🔎 Play youtube playlists via search query
-  * `/playlist linkin park meteora`
+  * `!playlist linkin park meteora`
 * Command Handler from [discordjs.guide](https://discordjs.guide/)
 * Queue system (/queue)
 * Loop / Repeat (/loop)
@@ -66,3 +81,4 @@ Copy or Rename `config.json.example` to `config.json` and fill out the values:
 ## Credits
 
 [@iCrawl](https://github.com/iCrawl) For the queue system used in this application which was adapted from [@iCrawl/discord-music-bot](https://github.com/iCrawl/discord-music-bot)
+[@eritislami](https://github.com/eritislami) For the base project that is being used in this project [@eritislami/evobot](https://github.com/eritislami/evobot)
