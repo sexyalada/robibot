@@ -7,6 +7,13 @@ const { readdirSync } = require("fs");
 const { join } = require("path");
 const { TOKEN, PREFIX, MUSIC_CHANNEL_ID } = require("./config");
 const { MessageEmbed } = require('discord.js');
+const express = require('express');
+const app = express();
+
+app.get("/", (request, response) => {
+	response.sendStatus(200);
+});
+app.listen(8080);
 
 client.login(TOKEN);
 client.commands = new discord.Collection();
