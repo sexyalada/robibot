@@ -30,6 +30,9 @@ MUSIC_CHANNEL_ID=12345678900000000
 ```
 
 ## Using the bot via Glitch
+
+> **Discord started to ban Glitch IPs from using it's bot APIs. So if your bot doesn't start and without any error then you should try to create project until you can get a project where the bot works properly.**
+
 1. **Getting the bot's token**: [Discord developers page](https://discordapp.com/developers) > Create an application > Bot > Build a Bot > Token > Copy
 2. **Getting Youtube API token**:
    * [Youtube Data API V3](https://console.cloud.google.com/apis/api/youtube.googleapis.com/overview) > Enable API
