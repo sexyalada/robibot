@@ -48,7 +48,7 @@ client.on("message", async message => {
 			message.delete();
 		}
 
-		if (message.channel.id != MUSIC_CHANNEL_ID) {
+		if (message.channel.id != MUSIC_CHANNEL_ID && MUSIC_CHANNEL_ID.length >= 18) {
 			message.delete();
 
 			let commandErrorEmbed = new MessageEmbed()
